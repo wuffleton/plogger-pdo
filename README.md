@@ -19,10 +19,17 @@ First line of the .php file -> ```<?php require("path/to/plogger.php");``` ?>
 In the HEAD section -> ```<?php the_plogger_head(); ?>```
 In the BODY section where you want the gallery -> ```<?php the_plogger_gallery(); ?>```
 
+Upgrading from -RC1
+-------------------
+- Edit your DB information and table prefix into /plog-admin/_upgrade.php 
+- Navigate to the script in your browser.
+- This is a simple one-shot PHP script, so randomly refreshing or running it more than once may result in unpredictable behavior. 
+- As with any database schema upgrade, your mileage may vary. I STRONGLY recommend you use mysqldump or similar to make a backup of your database first. 
+
 Differences from -RC1
 ---------------------
-- Database schema has been slightly changed to accomodate my changes to the codebase. Unfortunately this means that you will need to perform a clean install unless you're good at SQL-fu. 
-- Upgrade code has been removed since it would be overly complex and time consuming to update properly.
+- Database schema has been slightly changed to accomodate my changes to the codebase. If you are coming from RC1, see upgrade information above.
+- Upgrade code for revisions older than RC1 has been removed since it would be overly complex and time consuming to update properly.
 - Gallery URL handling improved. Install script will detect HTTP/HTTPS, and admin panel will now allow relative paths to be used for the gallery location.
 - Certain error messages adapted to PDO changes. Most DB errors will be hidden by default unless PLOGGER_DEBUG is on for security and elegance reasons.
 - The phpthumb library has been updated to the latest version (1.7.13) 
